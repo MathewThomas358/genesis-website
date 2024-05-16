@@ -19,5 +19,5 @@
     - back-end
       - thumbnails that are less than 100kb should be sent on request
       - when viewing images, send slightly larger; Only provide actual image for download
-      - **SCALA**
+      - **GO**
       
