@@ -1,0 +1,36 @@
+package main
+
+// This is the way to define common styles
+templ whole_page(cols, rows uint) {
+	<head>
+		<link href="./static/output.css" rel="stylesheet"/>
+	</head>
+	<body>
+		@grid_of_rounded(cols, rows)
+	</body>
+}
+
+templ rounded_rect() {
+	<div class="w-10 h-10 m-1 bg-red-400 rounded-2xl transition-colors duration-1000 ease-in-out hover:bg-violet-600"></div>
+}
+
+templ row_of_rounded(cols uint) {
+	<div class="flex">
+		for i:=range cols {
+			{ unused(i) }
+			@rounded_rect()
+		}
+	</div>
+}
+
+templ grid_of_rounded(cols, rows uint) {
+	<div>
+		for i:=range rows {
+			{ unused(i) }
+			@row_of_rounded(cols)
+		}
+	</div>
+}
+
+// A function to do anything; I was not sure how to use a for loop without using the indices..
+func unused(t any) string { return "" }
